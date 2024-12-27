@@ -58,9 +58,10 @@ public class MemberController {
         return "list";
     }
 
-    @GetMapping("/member/{user_id}")
-    public String findById(@PathVariable("user_id") Long id, Model model) {
+    @GetMapping("/member/{id}")
+    public String findById(@PathVariable("id") Long id, Model model) {
         MemberDTO memberDTO = memberService.findById(id);
+        System.out.println("id = " + id + ", model = " + model);
         model.addAttribute("member", memberDTO);
         return "detail";
     }
