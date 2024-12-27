@@ -91,4 +91,12 @@ public class MemberController {
         return "index";
     }
 
+    @PostMapping("/member/email-check")
+    @ResponseBody
+    public String emailCheck(@RequestParam("memberEmail") String memberEmail){
+        System.out.println("memberEmail = " + memberEmail);
+        String checkResult = memberService.emailCheck(memberEmail);
+        return checkResult; //사용가능하면 ok, 못하면 null
+    }
+
 }
